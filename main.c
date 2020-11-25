@@ -4,5 +4,6 @@
 
 int main() {
 
+    calculo(teste1);
     return 0;
 }
