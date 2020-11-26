@@ -5,13 +5,14 @@
 // JOGO DA FORCA
 
 int main () {
-    char palavra[50], tentativa[50];
+    char palavra[50], tentativa[50], copiaPalavra[50];
     int i, fim = 0, encontrei;
     int n_tentativas = 0, limite_tentativas, corretas = 0;
     char chute, c;
 
     // busca uma palavra
     strcpy (palavra, "exemplo");
+    strcpy (copiaPalavra, palavra);
 
     // define o limite de tentativas
     limite_tentativas = strlen (palavra) * 1.5;
@@ -36,6 +37,12 @@ int main () {
             printf("___ ");
         printf("\n");
 
+        printf("\n\n____________________________________\n\n");
+        printf("Restantes: %d", limite_tentativas - n_tentativas);
+        printf(" - Corretas: %d", corretas);
+        printf("\n\n____________________________________\n\n");
+
+
         // ******* RESPOSTAS DO JOGADOR *********
 
         // ler repostas do jogador
@@ -46,7 +53,8 @@ int main () {
         // testa se a letra informada encontra-se na paravra escolhida
         encontrei = 0;
         for (i = 0; i < strlen(palavra); i++)
-            if (palavra[i] == chute) {
+            if (copiaPalavra[i] == chute) {
+                copiaPalavra[i] = '*';
                 tentativa[i] = chute;
                 corretas++;
                 encontrei = 1;
