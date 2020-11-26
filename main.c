@@ -54,9 +54,9 @@ int main () {
         // Testa-se a letra informada encontra-se na palavra escolhida
         encontrei = 0;
         for (i=0; i<strlen(palavra); i++)
-            if (copiaPalavra[i] == chute) {
+            if (toupper(copiaPalavra[i]) == toupper(chute)) {
                     copiaPalavra[i]= '*';
-                    tentativa[i] = chute;
+                    tentativa[i] = toupper(chute);
                     corretas ++;
         }
 
@@ -68,5 +68,16 @@ int main () {
 
 
     } while (fim == 0);
+
+    system("cls");
+
+    // Mensagem de conclusão do jogo
+    if (n_tentativas >= limite_tentativas) {
+        printf("*** Que pena! Tente novamente. ***");
+        printf("A palavra era: >>> %s <<<\n\n", palavra);
+    } else if ( chute != '*') {
+        printf("\n**** PARABENS!****\n");
+        printf(" Voce acertou a palavra: %s\n", palavra);
+    }
     return 0;
 }
