@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1606330785 source:c:\users\vitor\documents\forca_game\funcoes.c
+	"funcoes.h"
+
+1606330793 c:\users\vitor\documents\forca_game\funcoes.h
+
+1606350384 source:c:\users\vitor\documents\forca_game\main.c
+	<stdio.h>
+	<string.h>
+	"funcoes.h"
+
+1606352336 source:c:\users\aurora\projeto-jogo-da-forca-em-c\funcoes.c
+	"funcoes.h"
+
+1606352336 c:\users\aurora\projeto-jogo-da-forca-em-c\funcoes.h
+
+1606391080 source:c:\users\aurora\projeto-jogo-da-forca-em-c\main.c
+	<stdio.h>
+	<string.h>
+	"funcoes.h"
+
