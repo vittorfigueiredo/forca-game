@@ -36,6 +36,29 @@ int main () {
             printf("___ ");
         printf("\n");
 
+        // ******* RESPOSTAS DO JOGADOR *********
+
+        // ler repostas do jogador
+        printf("\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
+        scanf("%c", &chute);
+        scanf("%c", &c);
+
+        // testa se a letra informada encontra-se na paravra escolhida
+        encontrei = 0;
+        for (i = 0; i < strlen(palavra); i++)
+            if (palavra[i] == chute) {
+                tentativa[i] = chute;
+                corretas++;
+                encontrei = 1;
+            }
+
+        if (encontrei == 0)
+            n_tentativas++;
+
+
+        if (n_tentativas >= limite_tentativas || corretas == strlen(palavra) || chute == '*')
+            fim = 1;
+
 
     } while (fim == 0);
 
