@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1606330785 source:c:\users\vitor\documents\forca_game\funcoes.c
+1606570279 source:c:\users\vitor\documents\forca_game\funcoes.c
 	"funcoes.h"
 
-1606330793 c:\users\vitor\documents\forca_game\funcoes.h
+1606570298 c:\users\vitor\documents\forca_game\funcoes.h
+	<locale.h>
 
-1606394078 source:c:\users\vitor\documents\forca_game\main.c
+1606570255 source:c:\users\vitor\documents\forca_game\main.c
 	<stdio.h>
 	<string.h>
 	"funcoes.h"

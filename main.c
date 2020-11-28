@@ -3,15 +3,16 @@
 #include "funcoes.h"
 
 // JOGO DA FORCA
+char *escolhePalavra (char [], char[]);
 
 int main () {
-    char palavra[50], tentativa[50], copiaPalavra[50];
+    char palavra[50], tentativa[50], copiaPalavra[50], escolha[50];
     int i, fim = 0, encontrei;
     int n_tentativas = 0, limite_tentativas, corretas = 0;
     char chute, c;
 
     // busca uma palavra
-    strcpy (palavra, "exemplo");
+    strcpy(palavra, escolhePalavra("palavras.txt", escolha));
     strcpy (copiaPalavra, palavra);
 
     // define o limite de tentativas
@@ -76,9 +77,45 @@ int main () {
         printf("*** Que pena! Tente novamente. ***");
         printf("A palavra era: >>> %s <<<\n\n", palavra);
     } else if ( chute != '*') {
-        printf("\n**** PARABENS!****\n");
+        printf("\n**** PARABÉNS!****\n");
         printf(" Voce acertou a palavra: %s\n", palavra);
     }
 
+
     return 0;
+}
+
+char *escolhePalavra(char nomeArquivo[], char escolha[]) {
+    char linha[100] [50];
+    int contador = 0, i;
+    FILE *arq;
+
+    // Abre o arquivo
+    if ((arq = fopen("palavras.txt", "r")) == NULL)
+        puts("Erro na abertura do arquivo!\n\n");
+    else {
+        do {
+            // Lê linha do arquivo
+            fgets(escolha, 50, arq);
+
+            // Retira as quebras esxtras de linhas
+            for (i = 0; i < strlen(escolha); i++)
+                if (escolha[i] == '\n')
+                    escolha[i] = '\0';
+
+            // Testa se string não está vazia e armazena no vetor
+            if (strcmp(escolha, "")) {
+                strcpy(linha[contador], escolha);
+                contador++;
+            }
+        } while (!feof(arq));
+    }
+
+    // Sorteia uma palavra pelo indice
+    srand(time(NULL));
+    i = rand() % contador + 1;
+
+    strcpy(escolha, linha[i]);
+    return escolha;
+
 }
