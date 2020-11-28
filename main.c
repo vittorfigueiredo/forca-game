@@ -24,7 +24,7 @@ int main () {
     do {
         // apresenta cabeçalho do jogo
         system("cls");
-        printf("\n      FORCA EM C\n");
+        printf("\n     FORCA EM C\n");
         printf("_____________________________\n\n\n");
 
         // apresenta letras já encontradas
@@ -37,41 +37,48 @@ int main () {
             printf("___ ");
         printf("\n");
 
-        printf("\n\n____________________________________\n\n");
-        printf("Restantes: %d", limite_tentativas - n_tentativas);
-        printf(" - Corretas: %d", corretas);
-        printf("\n\n____________________________________\n\n");
+        // Adiciona número de tentativas e quantas estão corretas
+        printf("\n\n\n________________________________\n\n\n");
+        printf("Restantes: %d\n", limite_tentativas - n_tentativas);
+        printf("Corretas: %d\n", corretas);
+        printf("\n\n\n________________________________\n\n\n");
 
 
-        // ******* RESPOSTAS DO JOGADOR *********
+        // ******** RESPOSTAS DO JOGADOR *********
+        // le respostas do jogador
 
-        // ler repostas do jogador
-        printf("\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
-        scanf("%c", &chute);
+        printf("\n\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
+        scanf ("%c", &chute);
         scanf("%c", &c);
 
-        // testa se a letra informada encontra-se na paravra escolhida
+        // Testa-se a letra informada encontra-se na palavra escolhida
         encontrei = 0;
-        for (i = 0; i < strlen(palavra); i++)
-            if (copiaPalavra[i] == chute) {
-                copiaPalavra[i] = '*';
-                tentativa[i] = chute;
-                corretas++;
-                encontrei = 1;
-            }
+        for (i=0; i<strlen(palavra); i++)
+            if (toupper(copiaPalavra[i]) == toupper(chute)) {
+                    copiaPalavra[i]= '*';
+                    tentativa[i] = toupper(chute);
+                    corretas ++;
+        }
 
         if (encontrei == 0)
             n_tentativas++;
 
-
-        if (n_tentativas >= limite_tentativas || corretas == strlen(palavra) || chute == '*')
+        if (n_tentativas >= limite_tentativas || corretas >= strlen(palavra) || chute == '*')
             fim = 1;
 
 
     } while (fim == 0);
 
+    system("cls");
 
-
+    // Mensagem de conclusão do jogo
+    if (n_tentativas >= limite_tentativas) {
+        printf("*** Que pena! Tente novamente. ***");
+        printf("A palavra era: >>> %s <<<\n\n", palavra);
+    } else if ( chute != '*') {
+        printf("\n**** PARABENS!****\n");
+        printf(" Voce acertou a palavra: %s\n", palavra);
+    }
 
     return 0;
 }
