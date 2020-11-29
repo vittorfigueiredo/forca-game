@@ -52,75 +52,49 @@ void jogo() {
 
         printf("\n\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
         scanf ("%c", &chute);
-        scanf("%c", &c);
+        //scanf("%c", &c);
+        //printf("%c   %c", chute, c);
+        //sleep(10);
 
         // Testa-se a letra informada encontra-se na palavra escolhida
         encontrei = 0;
-        for (i=0; i<strlen(palavra); i++)
+        for (i=0; i < strlen(palavra); i++)
             if (toupper(copiaPalavra[i]) == toupper(chute)) {
                     copiaPalavra[i]= '*';
                     tentativa[i] = toupper(chute);
                     corretas ++;
+                    encontrei = 1;
         }
 
         if (encontrei == 0)
             n_tentativas++;
 
-        if (n_tentativas >= limite_tentativas || corretas >= strlen(palavra) || chute == '*')
+        if (n_tentativas >= limite_tentativas || corretas == strlen(palavra) || chute == '*')
             fim = 1;
             // exit(0); // Função para fechar o programa
 
 
-    } while (fim == 0);
 
-    system("cls");
 
-    // Mensagem de conclusão do jogo
-    if (n_tentativas >= limite_tentativas) {
-        printf("*** Que pena! Tente novamente. ***");
-        printf("A palavra era: >>> %s <<<\n\n", palavra);
-    } else if ( chute != '*') {
-        printf("\n**** PARABÉNS!****\n");
-        printf(" Voce acertou a palavra: %s\n", palavra);
-    }
 
-}
+    } while (fim != 1);
 
-void creditos() {
-    ortografia();
-    int fim = 0;
-    char op;
-
-    do {
         system("cls || clear");
-        printf("___________________________________________\n\n");
-        printf("                CRÉDITOS      \n");
-        printf("___________________________________________\n\n");
-        printf("\nDesenvolvido por:\n");
-        printf("                 < Anderson Bruno...   />\n");
-        printf("                 < Vinicius Roque...   />\n");
-        printf("                 < Vitor Figueiredo... />\n");
-        printf("___________________________________________\n\n");
-        printf("\n\nPressione 'M' para voltar ao menu: ");
-        scanf("%c", &op);
 
-        op = toupper(op);
-
-        switch (op) {
-
-            case 'M':
-                fim = 1;
-                main();
-                break;
-
-            default:
-                printf("Opção escolhida inválida!");
-                break;
+        // Mensagem de conclusão do jogo
+        if (n_tentativas >= limite_tentativas) {
+            printf("*** Que pena! Tente novamente. ***");
+            printf("A palavra era: >>> %s <<<\n\n", palavra);
+        } else if ( chute != '*') {
+            printf("\n**** PARABÉNS!****\n");
+            printf(" Voce acertou a palavra: %s\n", palavra);
         }
 
-    } while (fim == 0);
+        // Espera 5 segundos antes de voltar ao menu
+        sleep(5);
 
 }
+
 
 // Função para a leitura do arquivo com as palavras
 char *escolhePalavra(char nomeArquivo[], char escolha[]) {
@@ -156,6 +130,43 @@ char *escolhePalavra(char nomeArquivo[], char escolha[]) {
 
     strcpy(escolha, linha[i]);
     return escolha;
+
+}
+
+
+void creditos() {
+    ortografia();
+    int fim = 0;
+    char op;
+
+    do {
+        system("cls || clear");
+        printf("___________________________________________\n\n");
+        printf("                CRÉDITOS      \n");
+        printf("___________________________________________\n\n");
+        printf("\nDesenvolvido por:\n");
+        printf("                 < Anderson Bruno...   />\n");
+        printf("                 < Vinicius Roque...   />\n");
+        printf("                 < Vitor Figueiredo... />\n");
+        printf("___________________________________________\n\n");
+        printf("\n\nPressione 'M' para voltar ao menu: ");
+        scanf("%c", &op);
+
+        op = toupper(op);
+
+        switch (op) {
+
+            case 'M':
+                fim = 1;
+                main();
+                break;
+
+            default:
+                printf("Opção escolhida inválida!");
+                break;
+        }
+
+    } while (fim == 0);
 
 }
 
