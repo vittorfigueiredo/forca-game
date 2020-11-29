@@ -124,6 +124,7 @@ void creditos() {
 
 // Função para a leitura do arquivo com as palavras
 char *escolhePalavra(char nomeArquivo[], char escolha[]) {
+
     char linha[100] [50];
     int contador = 0, i;
     FILE *arq;
@@ -157,3 +158,25 @@ char *escolhePalavra(char nomeArquivo[], char escolha[]) {
     return escolha;
 
 }
+
+// Função para cadastrar uma nova palavra
+void cadastrarPalavra() {
+
+         FILE * arq = NULL;
+         char palavra[50];
+
+        system("cls || clear");
+         printf("Digite uma palavra para cadastrar: ");
+         scanf("%s", palavra);
+
+         arq = fopen("palavras.txt", "a");
+         fprintf(arq, palavra);
+         fprintf(arq, "\n");
+         fflush(arq);
+         fclose(arq);
+         system("cls || clear");
+         printf("Dados gravados com sucesso! \n\nVoltando ao menu principal... =D");
+
+         sleep(5);
+
+ }

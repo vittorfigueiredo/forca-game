@@ -28,6 +28,10 @@ void main() {
                 creditos();
                 break;
 
+            case 3:
+                cadastrarPalavra();
+                break;
+
             case 5:
                 system("cls || clear");
                 printf("\n\nSaindo...\n\n");
@@ -36,13 +40,9 @@ void main() {
             default:
                 printf("Escolha uma opção válida!");
                 break;
-
-
         }
 
-
     }   while (opcao != 5);
-
 
     return 0;
 }
