@@ -1,77 +1,48 @@
-#include <stdio.h>
-#include <string.h>
 #include "funcoes.h"
 
 // JOGO DA FORCA
 
-int main () {
-    char palavra[50], tentativa[50], copiaPalavra[50];
-    int i, fim = 0, encontrei;
-    int n_tentativas = 0, limite_tentativas, corretas = 0;
-    char chute, c;
-
-    // busca uma palavra
-    strcpy (palavra, "exemplo");
-    strcpy (copiaPalavra, palavra);
-
-    // define o limite de tentativas
-    limite_tentativas = strlen (palavra) * 1.5;
-
-    // armazena string com espaços com tamanho da palavra sorteada
-    for (i = 0; i < strlen(palavra); i++)
-        tentativa[i] = ' ';
+void main() {
+    ortografia();
+    int opcao = 1;
 
     do {
-        // apresenta cabeçalho do jogo
         system("cls");
-        printf("\n      FORCA EM C\n");
-        printf("_____________________________\n\n\n");
+        printf("_____________________\n\n");
+        printf("     FORCA EM C\n");
+        printf("_____________________\n\n");
+        printf("1 - JOGAR\n");
+        printf("2 - VER RANKING\n");
+        printf("3 - CADASTRAR PALAVRAS\n");
+        printf("4 - CRÉDITOS\n");
+        printf("5 - SAIR");
+        printf("\n\nSelecione: ");
+        scanf("%d", &opcao);
 
-        // apresenta letras já encontradas
-        for (i = 0; i < strlen(palavra); i++)
-            printf(" %c  ", tentativa[i]);
-        printf("\n");
+        switch (opcao) {
+            case 1:
+                jogo();
+                break;
 
-        // apresentar posições para letras
-        for (i = 0; i < strlen(palavra); i++)
-            printf("___ ");
-        printf("\n");
+            case 4:
+                creditos();
+                break;
 
-        printf("\n\n____________________________________\n\n");
-        printf("Restantes: %d", limite_tentativas - n_tentativas);
-        printf(" - Corretas: %d", corretas);
-        printf("\n\n____________________________________\n\n");
+            case 3:
+                cadastrarPalavra();
+                break;
 
+            case 5:
+                system("cls || clear");
+                printf("\n\nSaindo...\n\n");
+                exit(0); // Função para fechar o programa;
 
-        // ******* RESPOSTAS DO JOGADOR *********
+            default:
+                printf("Escolha uma opção válida!");
+                break;
+        }
 
-        // ler repostas do jogador
-        printf("\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
-        scanf("%c", &chute);
-        scanf("%c", &c);
-
-        // testa se a letra informada encontra-se na paravra escolhida
-        encontrei = 0;
-        for (i = 0; i < strlen(palavra); i++)
-            if (copiaPalavra[i] == chute) {
-                copiaPalavra[i] = '*';
-                tentativa[i] = chute;
-                corretas++;
-                encontrei = 1;
-            }
-
-        if (encontrei == 0)
-            n_tentativas++;
-
-
-        if (n_tentativas >= limite_tentativas || corretas == strlen(palavra) || chute == '*')
-            fim = 1;
-
-
-    } while (fim == 0);
-
-
-
+    }   while (opcao != 5);
 
     return 0;
 }
