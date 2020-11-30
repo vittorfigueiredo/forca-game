@@ -21,7 +21,7 @@ void main() {
 
         switch (opcao) {
             case 1:
-                jogo();
+                selecModo();
                 break;
 
             case 4:
