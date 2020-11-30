@@ -51,8 +51,8 @@ void jogo() {
         // le respostas do jogador
 
         printf("\n\n\nEntre com uma letra (ou * para encerrar) + <enter>: ");
-        scanf ("%c", &chute);
-        //scanf("%c", &c);
+        scanf("%c", &chute);
+        scanf("%c", &c);
         //printf("%c   %c", chute, c);
         //sleep(10);
 
@@ -133,7 +133,7 @@ char *escolhePalavra(char nomeArquivo[], char escolha[]) {
 
 }
 
-
+// Função para mostrar a tela de créditos
 void creditos() {
     ortografia();
     int fim = 0;
@@ -191,3 +191,6 @@ void cadastrarPalavra() {
          sleep(5);
 
  }
+
+
+

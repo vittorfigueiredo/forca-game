@@ -10,4 +10,5 @@ void jogo();
 char *escolhePalavra(char nomeArquivo[], char escolha[]);
 void cadastrarPalavra();
 void creditos();
+
 #endif // FUNCOES_H_INCLUDED
