@@ -12,7 +12,7 @@ int main() {
         printf("     FORCA EM C\n");
         printf("_____________________\n\n");
         printf("1 - JOGAR\n");
-        printf("2 - VER RANKING\n");
+        //printf("2 - VER RANKING\n");
         printf("3 - CADASTRAR PALAVRAS\n");
         printf("4 - CRÉDITOS\n");
         printf("5 - SAIR");

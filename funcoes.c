@@ -139,19 +139,19 @@ void jogo() {
 }
 
 void adcRanking(char nomeRa[50] , char *nome[] /*int *victory*/) {
-         FILE * arqRan = NULL;
-         nomeRa = nome;
-         int vitoria = 1;
+    FILE * arqRan = NULL;
+    nomeRa = nome;
+    int vitoria = 1;
 
 
-        arqRan = fopen("ranking.txt", "a");
-        fprintf(arqRan, nomeRa);
-        fprintf(arqRan, ",%d", vitoria);
-        fprintf(arqRan, "\n");
-        fflush(arqRan);
-        fclose(arqRan);
-        printf("%s adicionado ao Ranking! \n\nVoltando ao menu principal... =D", nomeRa);
-        sleep(5);
+    arqRan = fopen("ranking.txt", "a");
+    fprintf(arqRan, nomeRa);
+    fprintf(arqRan, ",%d", vitoria);
+    fprintf(arqRan, "\n");
+    fflush(arqRan);
+    fclose(arqRan);
+    printf("%s adicionado ao Ranking! \n\nVoltando ao menu principal... =D", nomeRa);
+    sleep(5);
 
  }
 
@@ -258,11 +258,6 @@ void multiplayer() {
             }
 
         }
-
-
-
-
-
 
 
         if (encontreiJ1 == 0)
@@ -392,23 +387,23 @@ void creditos() {
 // Função para cadastrar uma nova palavra
 void cadastrarPalavra() {
 
-         FILE * arq = NULL;
-         char palavra[50];
-         int i = 0;
+    FILE * arq = NULL;
+    char palavra[50];
+    int i = 0;
 
-        system("cls || clear");
-         printf("Digite uma palavra para cadastrar: ");
-         scanf("%s", palavra);
+    system("cls || clear");
+    printf("Digite uma palavra para cadastrar: ");
+    scanf("%s", palavra);
 
-         arq = fopen("palavras.txt", "a");
-        fprintf(arq, palavra);
-        fprintf(arq, "\n");
-         fflush(arq);
-         fclose(arq);
-         system("cls || clear");
-         printf("Dados gravados com sucesso! \n\nVoltando ao menu principal... =D");
+    arq = fopen("palavras.txt", "a");
+    fprintf(arq, palavra);
+    fprintf(arq, "\n");
+    fflush(arq);
+    fclose(arq);
+    system("cls || clear");
+    printf("Dados gravados com sucesso! \n\nVoltando ao menu principal... =D");
 
-         sleep(5);
+    sleep(5);
 
  }
 

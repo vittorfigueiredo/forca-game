@@ -1,6 +1,0 @@
-avitor,635
-agado,122
-vitor,635
-ola,635
-vitor,1
-vitor,1
