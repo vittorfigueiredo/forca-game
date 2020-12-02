@@ -7,11 +7,10 @@
 
 void ortografia();
 void jogo();
-void multiplayer();
-void jogador1();
-void jogador2();
+//void multiplayer();
 char *escolhePalavra(char nomeArquivo[], char escolha[]);
 void cadastrarPalavra();
+void adcRanking();
 void creditos();
 void selecModo();
 #endif // FUNCOES_H_INCLUDED

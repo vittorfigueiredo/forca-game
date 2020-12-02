@@ -2,7 +2,7 @@
 
 // JOGO DA FORCA
 
-void main() {
+int main() {
     ortografia();
     int opcao = 1;
 
@@ -24,12 +24,16 @@ void main() {
                 selecModo();
                 break;
 
-            case 4:
-                creditos();
-                break;
+            //case 2:
+                //verRanking();
+                //break;
 
             case 3:
                 cadastrarPalavra();
+                break;
+
+            case 4:
+                creditos();
                 break;
 
             case 5:
